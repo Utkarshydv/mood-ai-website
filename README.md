@@ -26,3 +26,4 @@ A React + Vite-based Sentiment and Emotion Analysis Chatbot.
 - ---
 
 <img width="1920" height="1080" alt="Screenshot 2025-07-23 at 4 15 21 PM" src="https://github.com/user-attachments/assets/3328a67f-fc3c-4ac0-890c-160b96b56b86" />
+by Utkarsh
