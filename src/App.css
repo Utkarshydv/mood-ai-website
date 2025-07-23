@@ -1,0 +1,330 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000000;
+  color: white;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #101010;
+  padding: 20px;
+  border-right: 1px solid #202020;
+  border-width: 3px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+/* Sidebar scroll */
+.sidebar {
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 100vh;
+  padding-right: 4px; /* Optional: avoids scroll from hiding under edge */
+  scroll-behavior: smooth;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+}
+
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+  position: absolute;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.emotion-history {
+  font-size: 12px;        /* Decrease font size */
+  padding-left: 12px;     /* Reduce left padding (ul default) */
+  margin-top: 4px;
+}
+
+.emotion-history li {
+  padding: 2px 0;         /* Reduce spacing between list items */
+  color: #ccc;  
+  font-size: 12px;          /* Optional: lighter text */
+}
+
+.analytics ul {
+  font-size: 12px;          /* Smaller text size */
+  padding-left: 12px;       /* Reduce left indentation */
+  margin-top: 6px;
+}
+
+.analytics ul li {
+  padding: 2px 0;           /* Tighter spacing between list items */
+  color: #ccc;              /* Optional: lighter text */
+}
+
+.section button {
+  display: block;
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #202020;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.section button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+  justify-content: space-between; /* 🆕 Ensure top (chat), bottom (input) */
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main.expanded {
+  margin-left: 0;
+}
+
+.show-menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #202020;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #003470;
+  color: white;
+}
+
+.message.ai {
+  align-self: flex-start;
+  background-color: #202020;
+  color: white;
+}
+
+.message-text {
+  margin-bottom: 6px;
+}
+
+.message-meta {
+  font-size: 12px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+.emotion {
+  font-size: 10px;
+  color: #ffd700;
+}
+
+.confidence {
+  font-size: 15px;
+  color: #aaa;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #0078d4;
+  color: white;
+}
+
+.ai {
+  align-self: flex-start;
+  background-color: #202020;
+  color: white;
+  margin-left: 80px; /* 🆕 Add left space even when sidebar is hidden */
+}
+
+.intro {
+  text-align: left;
+  margin-top: 100px;
+}
+
+.intro h2 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.intro p {
+  color: #ccc;
+}
+
+.suggestions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.suggestions button {
+  background: #202020;
+  color: rgb(239, 239, 239);
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-bar {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 10px;
+  background-color: #111111;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 5px;
+}
+
+.input-bar button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.message.ai em {
+  font-style: italic;
+  opacity: 0.7;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 0.7; }
+  25%, 75% { opacity: 0.3; }
+}
+
+.analytics .bar-chart {
+  margin-top: 10px;
+}
+
+.analytics .bar {
+  display: flex;
+  align-items: center;
+  margin: 10px ;
+}
+
+.bar-label {
+  width: 70px;
+  font-size: 12px;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.bar-fill {
+  height: 12px;
+  background-color: #004984;
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+/* Dot Loader */
+.dot-loader span {
+  animation: blink 1.2s infinite;
+  font-size: 20px;
+  padding: 0 2px;
+}
+.dot-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* Analytics bar */
+.bar {
+  width: 100%;
+  background-color: #222;
+  border-radius: 4px;
+  margin: 8px 0;
+  height: auto; /* keep flexible if needed */
+  padding: 4px; /* optional spacing inside the container */
+}
+.bar-inner {
+  height: 10px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 80% !important; /* Reduce to 80% of its default width */
+    max-width: 180px;      /* Optional: set a cap */
+  }
+}
