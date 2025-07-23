@@ -8,6 +8,7 @@
   NEUTRAL: '😐',
 };
 import React, { useState, useEffect } from 'react';
+
 import './App.css';
 import {
   MdPsychology, MdMenuOpen, MdMenu, MdDelete,
@@ -19,7 +20,7 @@ import { AiOutlineSend } from 'react-icons/ai';
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [isSidebarHidden, setIsSidebarHidden] = useState(false);
+  const [isSidebarHidden, setIsSidebarHidden] = useState(window.innerWidth <= 768);
   const [isLoading, setIsLoading] = useState(false);
   const [loaderText, setLoaderText] = useState('');
   const [emotionHistory, setEmotionHistory] = useState([]);

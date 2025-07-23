@@ -324,7 +324,24 @@ body {
 
 @media screen and (max-width: 768px) {
   .sidebar {
-    width: 80% !important; /* Reduce to 80% of its default width */
-    max-width: 180px;      /* Optional: set a cap */
+    width: 40% !important;
+    position: fixed;         /* Makes it float above main content */
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: #111111; /* or your sidebar bg */
+    z-index: 999;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    border-right: 2px solid #333; /* optional */
+  }
+
+  .sidebar.hidden {
+    transform: translateX(-100%);
+    display: none !important;
+  }
+
+  .main-content {
+    width: 100%; /* Ensure the chat section uses full width */
   }
 }
