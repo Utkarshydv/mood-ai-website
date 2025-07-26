@@ -10,7 +10,7 @@ A React + Vite-based Sentiment and Emotion Analysis Chatbot.
 
 - Chat interface with AI-generated emotional tone detection
 - Hugging Face `emotion-english-distilroberta-base` model integration
-- Emoji-tagged emotions: 😄 Joy, 😢 Sadness, 😠 Anger, etc.
+- Emoji-tagged emotions: 😄 Joy, 😢 Sadness, 😠 Anger, Disgust🤮, Fear😨etc.
 - Realtime emotion analytics with bar + line graphs
 - Fully mobile-responsive layout
 - Sidebar toggle for History / Analytics / Clear Chat
