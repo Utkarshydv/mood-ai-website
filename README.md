@@ -15,13 +15,6 @@ A React + Vite-based Sentiment and Emotion Analysis Chatbot.
 - Fully mobile-responsive layout
 - Sidebar toggle for History / Analytics / Clear Chat
 
-## Tools 🛠️ 
-
-- React 19
-- Vite
-- Hugging Face API
-- Chart.js
-- CSS Flexbox / Media Queries
 
 - ---
 
